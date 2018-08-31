@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class GalleryImage extends Component {
-  
-  render() {
+const GalleryImage = (props) => {
     return (
-      <img src={this.props.src} alt={this.props.alt} onClick={this.props.onClick}/>
-    )
-  }
+      <img src={props.src} alt={props.alt} onClick={props.onClick}/>
+    );
 }
 
 GalleryImage.propTypes = {

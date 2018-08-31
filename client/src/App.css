@@ -82,6 +82,9 @@ body {
 
 .remove-btn {
 	position: absolute;
+	border-color: transparent;
+	color: whitesmoke;
+	font-weight: bold;
   top: 10px;
 	right: 10px;
 }
