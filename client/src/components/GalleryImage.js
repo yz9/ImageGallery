@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class GalleryImage extends Component {
   
@@ -8,5 +9,9 @@ class GalleryImage extends Component {
     )
   }
 }
+
+GalleryImage.propTypes = {
+  src: PropTypes.string.isRequired
+};
 
 export default GalleryImage;
