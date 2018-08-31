@@ -1,4 +1,4 @@
-# Image Gallery
+# :camera: Image Gallery 
 
 > A responsive image gallery built with react.
 
