@@ -1,0 +1,12 @@
+{
+  "name": "imagegallery",
+  "version": "1.0.0",
+  "description": "a dynamic image gallery built with react",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "npm start --prefix client",
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "YZ",
+  "license": "MIT"
+}
