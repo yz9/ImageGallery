@@ -11,6 +11,7 @@ body {
 
 /* Navbar  */
 .navbar-light{
+	opacity: 0.9;
 	padding-left: 15px;
 }
 

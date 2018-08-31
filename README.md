@@ -2,6 +2,8 @@
 
 > A responsive image gallery built with react.
 
+![screenshot](https://user-images.githubusercontent.com/22216684/44917752-43487b00-ad07-11e8-8bc4-dd515a29c716.PNG)
+
 ## Installation
 
 Install all dependencies
