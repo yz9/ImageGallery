@@ -14,6 +14,45 @@ body {
 	padding-left: 15px;
 }
 
+/* Spinner */
+#loading {
+	z-index: 10;
+	display: none;
+	position: fixed;
+	width: 100%;
+	right: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(172, 170, 171, 0.6);
+}
+
+#loading::after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 45%;
+	width: 35px;
+	height: 35px;
+	border-width: 3.5px;
+	border-radius: 50%;
+	border-style: solid;
+	border-color: rgb(231, 221, 221);
+	border-top-color: transparent;
+	animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 /* showcase wrapper */
 .gallery-container {
   display: flex;

@@ -8,6 +8,7 @@ import { TYPE, NUM, THUMBNAIL_SIZE } from '../configs/imageConfig';
 class Gallery extends Component {
 
   state = {
+    loading: false,
     imgUrls: [],
     modal: {
       visible: false,
@@ -18,6 +19,7 @@ class Gallery extends Component {
   componentDidMount() {
     const { imgUrls } = this.state;
     if (imgUrls.length === 0) {
+      this.onLoad();
       this.fetchImages();
     }
   }
@@ -35,15 +37,28 @@ class Gallery extends Component {
   }
 
   loadImages = (imageUrls) => {
-    this.setState({
-      imgUrls: [...imageUrls]
-    });
+    this.setState(
+      { imgUrls: [...imageUrls] },
+      () => this.finishLoad()
+    );
   }
 
   removeImage = (id) => {
     this.setState(state => ({
       imgUrls: state.imgUrls.filter(img => img.id !== id)
     }));
+  }
+
+  onLoad = () => {
+    this.setState({
+      loading: true
+    });
+  }
+
+  finishLoad = () => {
+    this.setState({
+      loading: false
+    });
   }
 
   openModal = (e) => {
@@ -62,18 +77,20 @@ class Gallery extends Component {
 
   render() {
 
-    const { imgUrls } = this.state;
+    const { imgUrls, loading } = this.state;
+    const display = (loading === true) ? 'block' : 'none';
 
     return (
       <section className='gallery-container'>
-        {
-          imgUrls.map(img => (
-            <div className='gallery-item' key={img.id}>
-              <GalleryImage src={img.url} alt={'image ' + img.id} onClick={this.openModal} />
-              <button type="button" className="remove-btn btn btn-outline-danger" onClick={() => this.removeImage(img.id)}>&times;</button>
-            </div>
-          ))
-        }
+        <div id="loading" style={{ display: display }}></div>
+          {
+            imgUrls.map(img => (
+                <div className='gallery-item' key={img.id}>
+                  <GalleryImage src={img.url} alt={'image ' + img.id} onClick={this.openModal} />
+                  <button type="button" className="remove-btn btn btn-outline-danger" onClick={() => this.removeImage(img.id)}>&times;</button>
+                </div>
+            ))
+          }
         <GalleryModal visible={this.state.modal.visible} onClick={this.closeModal} src={this.state.modal.url} />
       </section>
     )
