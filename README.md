@@ -30,7 +30,7 @@ npm start
 
 ## APIs
 
-* [Unplash API](https://unsplash.com/developers) 
+* [Unsplash API](https://unsplash.com/developers) 
 
 ## License
 
